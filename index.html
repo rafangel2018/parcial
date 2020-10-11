@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Promedio.RR</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div id="calcular" class="container mt-5">
+        <H1 align="center"> Calcular Promedios &#128425;
+             </H1>
+             <br>
+             <br>
+        <form id= "formulario_registrar">
+
+            <h3>Datos  de la materia</h3>
+<input class="input" type="text" placeholder="&#128211;  Materia" required autofocus id = "materia" class="form-control my-3">
+<input class="input" type="text" placeholder="&#5413;  Codigo"  id = "Codigo" class="form-control my-3">
+<br>
+<br>
+<h3>Primer Corte 30%</h3>
+
+<input class="input" type="number"  placeholder="Quiz"  id = "Quiz" class="form-control my-3">
+<input class="p" type="number" step="0.01"  placeholder="%"  id = "PQuiz" class="form-control my-3">
+<input class="input" type="number" step="0.01"  placeholder="Talleres"  id = "Taller" class="form-control my-3">
+<input class="p" type="number" step="0.01" placeholder="%"  id = "Ptaller" class="form-control my-3">
+<input class="input" type="number" step="0.01" placeholder="Practico"  id = "Practico" class="form-control my-3">
+<input class="p" type="number" step="0.01" placeholder="%"  id = "Ppractico" class="form-control my-3">
+<input class="input" type="number" step="0.01" placeholder="Teorico"  id = "Teorico" class="form-control my-3">
+<input class="p" type="number" step="0.01" placeholder="%"  id = "Pteorico" class="form-control my-3">
+<input class="input" type="number"  placeholder="Nota1"  id = "Nota1" class="form-control my-3">
+<input id="BtnCalcular1" type="button" class="boton_personalizado" value="Calcular1" onclick="CalcularNota1()">
+<br>
+
+<h3>Segundo Corte 30% </h3>
+
+<input class="input" type="number" step="0.01" placeholder="Quiz"  id = "Quiz2" class="form-control my-3">
+<input class="p" type="number" step="0.01"  placeholder="%"  id = "PQuiz2" class="form-control my-3">
+<input class="input" type="number" step="0.01"  placeholder="Taller2"  id = "Taller2" class="form-control my-3">
+<input class="p" type="number" step="0.01" placeholder="%"  id = "Ptaller2" class="form-control my-3">
+<input class="input" type="number" step="0.01" placeholder="Practico"  id = "Practico2" class="form-control my-3">
+<input class="p" type="number" step="0.01" placeholder="%"  id = "Ppractico2" class="form-control my-3">
+<input class="input" type="number" step="0.01" placeholder="Teorico"  id = "Teorico2" class="form-control my-3">
+<input class="p" type="number" step="0.01" placeholder="%"  id = "Pteorico2" class="form-control my-3">
+<input class="input" type="number" step="0.01" placeholder="Nota"  id = "Nota2" class="form-control my-3">
+<input id="BtnCalcular2" type="button" class="boton_personalizado" value="Calcular2" onclick="CalcularNota2()">
+<br>
+<h3>Tercer Corte 40% </h3>
+
+<input class="input" type="number" step="0.01" placeholder="Quiz"  id = "Quiz3" class="form-control my-3">
+<input class="p" type="number" step="0.01"  placeholder="%"  id = "PQuiz3" class="form-control my-3">
+<input class="input" type="number" step="0.01"  placeholder="Talleres"  id = "Taller3" class="form-control my-3">
+<input class="p" type="number" step="0.01" placeholder="%"  id = "Ptaller3" class="form-control my-3">
+<input class="input" type="number" step="0.01" placeholder="Practico"  id = "Practico3" class="form-control my-3">
+<input class="p" type="number" step="0.01" placeholder="%"  id = "Ppractico3" class="form-control my-3">
+<input class="input" type="number" step="0.01" placeholder="Teorico"  id = "Teorico3" class="form-control my-3">
+<input class="p" type="number" step="0.01" placeholder="%"  id = "Pteorico3" class="form-control my-3">
+<input class="input" type="number" step="0.01" placeholder="Nota"  id = "Nota3" class="form-control my-3">
+<input id="BtnCalcular3" type="button" class="boton_personalizado" value="Calcular3" onclick="CalcularNota3()">
+<br>
+<input class="input" type="number" step="0.01" placeholder="Promedio"  id = "Promedio" class="form-control my-3">
+<br>
+<input class="btn-primary" id="btnEnviar" type="button"  value="Guardar" onclick="guardarCorte()">   
+<br>
+
+
+        <div id ="listaMaterias" class="mt-3">
+          <div class="row">
+            <div class="card">
+                <button onclick="consultarMaterias()">Consultar</button>
+
+            <table >
+                <thead>
+                <tr>
+                    <th>Materia</th>
+                    <th>Codigo</th>
+                    <th>Nota 1</th>
+                    <th>Nota 2</th>
+                    <th>Nota 3</th>
+                    <th>Definitiva</th>
+                </tr>
+            </thead>
+            <tbody id="tbodypulsacion">
+                <tr>
+
+                </tr>
+            </tbody>
+            </table> 
+        </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+    <script src="Scrip.js"></script>
+  </body>
+</html>
